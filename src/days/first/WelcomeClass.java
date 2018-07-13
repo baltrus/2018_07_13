@@ -5,7 +5,7 @@ package days.first.days.second;
  */
 public class WelcomeClass {
 
-    // pvsm sukuria main metoda, kad pasileistu programa
+    // psvm sukuria main metoda, kad pasileistu programa
     // ctr+alt+l sulygiuoja
     // ctr+shift+F10 paleidzia programa
     public static void main(String[] args) {
