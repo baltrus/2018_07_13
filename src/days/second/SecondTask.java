@@ -1,5 +1,6 @@
 package days.second;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -39,32 +40,43 @@ public class SecondTask {
     }
 
     private double trikampioPlotas(Scanner scanner) {
-        System.out.println("Iveskite a krastines ilgi");
-        double a = scanner.nextDouble();
-        System.out.println("Iveskite b krastines ilgi");
-        double b = scanner.nextDouble();
+        double a = getCorrectNumber(scanner,"Iveskite a krastines ilgi");
+        double b = getCorrectNumber(scanner, "Iveskite b krastines ilgi");
         return (a * b / 2);
     }
 
     private double staciakampioPlotas(Scanner scanner) {
-        System.out.println("Iveskite a krastines ilgi");
-        double a = scanner.nextDouble();
-        System.out.println("Iveskite b krastines ilgi");
-        double b = scanner.nextDouble();
+        double a = getCorrectNumber(scanner, "Iveskite a krastines ilgi");
+        double b = getCorrectNumber(scanner, "Iveskite b krastines ilgi");
         return (a * b);
     }
 
     private double kvadratoPlotas(Scanner scanner) {
-        System.out.println("Iveskite krastines ilgi");
-        double a = scanner.nextDouble();
+        double a = getCorrectNumber(scanner, "Iveskite krastines ilgi");
         return (Math.pow(a, 2));
     }
 
     private double apskritimoPlotas(Scanner scanner){
-        System.out.println("Iveskite apskritimo spinduli");
-        double a = scanner.nextDouble();
+        double a = getCorrectNumber(scanner, "Iveskite apskritimo spinduli");
         return (Math.PI * Math.pow(a, 2));
     }
+
+    private double getCorrectNumber(Scanner sc, String message) {
+        double result;
+        while (true) {
+            System.out.println(message);
+            try {
+                result = sc.nextDouble();
+                break;
+            }catch(InputMismatchException e){
+                System.out.println("Nepavyko pakartoti");
+                sc.nextLine();
+            }
+        }
+        return result;
+    }
+
+
 
 }
 
